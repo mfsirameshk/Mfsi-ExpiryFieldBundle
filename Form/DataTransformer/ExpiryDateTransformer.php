@@ -9,7 +9,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 /**
  * Transformer class for ExpiryField type
  */
-class MindfireDateTransformer implements DataTransformerInterface {
+class ExpiryDateTransformer implements DataTransformerInterface {
 
     /**
      * @var ObjectManager
