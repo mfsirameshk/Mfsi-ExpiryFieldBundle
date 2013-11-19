@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file is a part of MindfireExpiryField Bundle
+ */
 
 namespace Mindfire\Bundle\ExpiryFieldBundle\DependencyInjection;
 
@@ -11,14 +14,16 @@ use Symfony\Component\DependencyInjection\Loader;
 /**
  * Expiry Field extension
  */
-class MindfireExpiryFieldExtension extends Extension implements PrependExtensionInterface {
+class MindfireExpiryFieldExtension extends Extension implements PrependExtensionInterface
+{
 
     /**
      * Load the configs
      * @param array $configs
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
-    public function load(array $configs, ContainerBuilder $container) {
+    public function load(array $configs, ContainerBuilder $container)
+    {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
@@ -30,7 +35,8 @@ class MindfireExpiryFieldExtension extends Extension implements PrependExtension
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      * @throws \Exception
      */
-    public function prepend(ContainerBuilder $container) {
+    public function prepend(ContainerBuilder $container)
+    {
         $config = array('form' => array('resources' => array('MindfireExpiryFieldBundle:Form:expiry.html.twig')));
         try {
             $twigExtension = $container->getExtension('twig');

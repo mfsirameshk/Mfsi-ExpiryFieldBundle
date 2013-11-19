@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file is a part of MindfireExpiryField Bundle
+ */
 
 namespace Mindfire\Bundle\ExpiryFieldBundle\Form\DataTransformer;
 
@@ -9,7 +12,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 /**
  * Transformer class for ExpiryField type
  */
-class ExpiryDateTransformer implements DataTransformerInterface {
+class ExpiryDateTransformer implements DataTransformerInterface
+{
 
     /**
      * @var ObjectManager
@@ -19,7 +23,8 @@ class ExpiryDateTransformer implements DataTransformerInterface {
     /**
      * @param ObjectManager $om
      */
-    public function __construct(ObjectManager $om) {
+    public function __construct(ObjectManager $om)
+    {
         $this->om = $om;
     }
 
@@ -29,7 +34,8 @@ class ExpiryDateTransformer implements DataTransformerInterface {
      * @param  $ccExp|null 
      * @return array
      */
-    public function transform($ccExp) {
+    public function transform($ccExp)
+    {
         if (isset($ccExp['day'])) {
             unset($ccExp['day']);
         }
@@ -42,7 +48,8 @@ class ExpiryDateTransformer implements DataTransformerInterface {
      * @throws Exception
      * @return array
      */
-    public function reverseTransform($ccExp) {
+    public function reverseTransform($ccExp)
+    {
         try {
             if (!isset($ccExp['month']) || !isset($ccExp['year'])) {
                 throw new TransformationFailedException('Error in the input of expiry field type');
