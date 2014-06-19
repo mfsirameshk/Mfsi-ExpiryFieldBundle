@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('mindfire_expiry_field');
+        $treeBuilder->root('mindfire_expiry_field');
         return $treeBuilder;
     }
 
